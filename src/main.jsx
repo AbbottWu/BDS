@@ -113,9 +113,9 @@ class Page2 extends React.Component {
 
     // card 内渲染部分（图片+介绍）
     let in_card = (
-      <div className="container flex items-center">
+      <div className='flex items-center'>
         {/* 上一页按钮 */}
-        <div className="bg-gray-200 text-gray-800 hover:bg-gray-300 rounded flex items-center justify-center h-60 w-8 flex-shrink-0 flex-grow-0"
+        <div className="h-50 w-8 bg-gray-200 text-gray-800 hover:bg-gray-300 rounded flex items-center justify-center"
           onClick={() => {
             let new_state = ((this.state['state'] - 1 > 0) ? this.state['state'] - 1 : 0);
             let new_item = this.make_content(new_state);
@@ -127,14 +127,16 @@ class Page2 extends React.Component {
           <i className="icon-chevron-left"></i>
         </div>
 
-        {/* 图片与介绍容器 */}
-        <img src={this.state.img} className={'m-5 lg:(m-10 w-40) ' + (this.state.clicked ? 'animated animate-fadeIn animate-slower' : '')}></img>
-        <p className={'m-10 ' + (this.state.clicked ? 'animated animate-fadeIn animate-slower' : '')}>
-          {this.state.intro}
-        </p>
+        <div className="mt-5 container items-center md:(flex)">
+          {/* 图片与介绍容器 */}
+          <img src={this.state.img} className={'static ml-2 mr-3 mt-2 w-24 float-left md:(ml-3 w-40 h-auto) ' + (this.state.clicked ? 'animated animate-fadeIn animate-slower' : '')}></img>
+          <p className={'static mx-2 ' + (this.state.clicked ? 'animated animate-fadeIn animate-slower' : '')}>
+            {this.state.intro}
+          </p>
+        </div>
 
         {/* 下一页按钮 */}
-        <div className="bg-gray-200 text-gray-800 hover:bg-gray-300 rounded flex items-center justify-center h-60 w-8 flex-shrink-0 flex-grow-0"
+        <div className="h-50 w-8 bg-gray-200 text-gray-800 hover:bg-gray-300 rounded flex items-center justify-center"
           onClick={() => {
             let new_state = ((this.state['state'] + 1 < 4) ? this.state['state'] + 1 : 3);
             let new_item = this.make_content(new_state);
@@ -155,7 +157,7 @@ class Page2 extends React.Component {
         offset={1}
         speed={0.5}
         className="flex justify-center items-center">
-        <div className='container flex flex-col p-5 bg-white w-3/5 rounded-xl shadow-lg shadow-blue-400'>
+        <div className='container flex flex-col p-5 bg-white rounded-xl shadow-lg shadow-blue-400 w-11/12 md:(w-3/5)'>
           <h1 className='self-center text-3xl p-3 bg-blue-200 rounded-md text-sky-700'>卫星定位的原理</h1>
           <hr className='mt-5' />
           {in_card}
@@ -230,11 +232,11 @@ class Page3 extends React.Component {
         speed={0.3}
         className="bg-transparent w-full justify-center items-center flex"
       >
-        <img src={earth_img} className='h-120 mt-80'></img>
+        <img src={earth_img} className=' mt-80 md:(w-120)'></img>
       </ParallaxLayer>
     );
     let introduction = (
-      <div className={'absolute h-2/3 w-2/5 bg-white shadow-xl border-2 border-' + this.state.color + '-500 shadow-' + this.state.color + '-400 rounded-xl flex flex-col items-center p-10 animated ' + (this.state.showing ? 'animate-fadeIn z-50' : 'animate-fadeOut animate-faster z-0')}>
+      <div className={'absolute h-2/3 w-11/12 sm:(w-2/5) bg-white shadow-xl border-2 border-' + this.state.color + '-500 shadow-' + this.state.color + '-400 rounded-xl flex flex-col items-center p-10 animated ' + (this.state.showing ? 'animate-fadeIn z-50' : 'animate-fadeOut animate-faster z-0')}>
         <div className='absolute h-8 w-8 rounded-full bg-gray-300 hover:(bg-gray-400) flex justify-center items-center right-5 top-5 cursor-pointer'
           onClick={() => {
             this.setState({
@@ -267,11 +269,11 @@ class Page3 extends React.Component {
           </span>
         </div>
 
-        <div className='absolute mr-150 mb-150'>
+        <div className='absolute top-20 left-50'>
           <span className='flex cursor-pointer'
             onClick={() => { this.click_img(1) }}>
-            <span className={"animate-ping absolute inline-flex rounded-full h-20 w-20 bg-cyan-500 ml-32 mt-4 z-0 " + (this.state.clicked[1] ? 'hidden' : '')}></span>
-            <img src={satellite_img} className='h-20 transform -rotate-37 z-40'></img>
+            <span className={"animate-ping absolute inline-flex rounded-full h-20 w-20 bg-cyan-500 ml-14 sm:(ml-32 mt-4) z-0 " + (this.state.clicked[1] ? 'hidden' : '')}></span>
+            <img src={satellite_img} className='w-80 transform -rotate-37 z-40'></img>
           </span>
         </div>
 
@@ -331,7 +333,7 @@ class Page4 extends React.Component {
 
   wrap = function (text) {
     return (
-      <div className={'hover:(bg-gray-300) h-12 text-gray-600 pl-5 pt-3 text-md cursor-pointer ' + (this.state.showing == text ? "bg-gray-300" : "bg-gray-200")}
+      <div className={'hover:(bg-gray-300) h-12 text-gray-600 pl-5 pt-3 text-sm md:(text-md) cursor-pointer ' + (this.state.showing == text ? "bg-gray-300" : "bg-gray-200")}
         onClick={this.click.bind(this, text)}
         key={text}>
         {text}
@@ -355,9 +357,9 @@ class Page4 extends React.Component {
         speed={0.5}
         className="bg-transparent flex justify-center items-center"
       >
-        <div className='h-3/4 w-1/2 bg-white shadow-lg shadow-blue-400 rounded-xl flex'>
+        <div className='h-3/4 w-11/12 md:(w-1/2) bg-white shadow-lg shadow-blue-400 rounded-xl flex'>
           <div className="w-1/4 bg-gray-100 rounded-l-lg shadow-inner flex flex-col flex-shrink-0">
-            <div className='bg-gray-200 h-18 text-gray-800 rounded-tl-xl pl-5 pt-4 text-lg cursor-pointer'
+            <div className='bg-gray-200 h-18 text-gray-800 rounded-tl-xl pl-5 pr-1 pt-4 text-lg cursor-pointer'
               onClick={() => {
                 this.setState(this.defult_intro);
                 this.setState({'clicked': true,});
