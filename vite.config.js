@@ -8,5 +8,4 @@ export default defineConfig({
     react(),
     WindiCSS(),
   ],
-  base:"/BDS/"
 })
