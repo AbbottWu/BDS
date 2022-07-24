@@ -119,17 +119,17 @@ class Page2 extends React.Component {
           onClick={() => {
             let new_state = ((this.state['state'] - 1 > 0) ? this.state['state'] - 1 : 0);
             let new_item = this.make_content(new_state);
-            this.setState({ 'img': new_item[0], 'intro': new_item[1], 'state': new_state, 'clicked': true });
-            if (new_state != 0) {
-              window.setTimeout(() => { this.setState({ 'clicked': false }) }, 500);
+            if (new_state != this.state.state) {
+              this.setState({ 'img': new_item[0], 'intro': new_item[1], 'state': new_state, 'clicked': true });
+              window.setTimeout(() => { this.setState({ 'clicked': false }) }, 1000);
             }
           }}>
           <i className="icon-chevron-left"></i>
         </div>
 
         {/* 图片与介绍容器 */}
-        <img src={this.state.img} className={'m-5 lg:(m-10 w-40) ' + (this.state.clicked ? 'animated animate-fadeIn' : '')}></img>
-        <p className={'m-10 ' + (this.state.clicked ? 'animated animate-fadeIn' : '')}>
+        <img src={this.state.img} className={'m-5 lg:(m-10 w-40) ' + (this.state.clicked ? 'animated animate-fadeIn animate-slow' : '')}></img>
+        <p className={'m-10 ' + (this.state.clicked ? 'animated animate-fadeIn animate-slow' : '')}>
           {this.state.intro}
         </p>
 
@@ -138,9 +138,10 @@ class Page2 extends React.Component {
           onClick={() => {
             let new_state = ((this.state['state'] + 1 < 4) ? this.state['state'] + 1 : 3);
             let new_item = this.make_content(new_state);
-            this.setState({ 'img': new_item[0], 'intro': new_item[1], 'state': new_state, 'clicked': true });
-            if (new_state != 3) {
-              window.setTimeout(() => { this.setState({ 'clicked': false }) }, 500);
+            console.log(new_state);
+            if (new_state != this.state.state) {
+              this.setState({ 'img': new_item[0], 'intro': new_item[1], 'state': new_state, 'clicked': true });
+              window.setTimeout(() => { this.setState({ 'clicked': false }) }, 1000);
             }
           }}>
           <i className="icon-chevron-right"></i>
@@ -367,9 +368,9 @@ class Page4 extends React.Component {
             {items}
           </div>
           <div className='p-5 flex flex-col w-full'>
-            <h1 className={'text-xl text-gray-900 self-center ' + (this.state.clicked ? 'animated animate-fadeIn' : '')}>{this.state.title}</h1>
-            <hr className='my-2'></hr>
-            <p className={'text-gray-800 ' + (this.state.clicked ? 'animated animate-fadeIn' : '')}>{this.state.introduction}</p>
+            <h1 className={'text-2xl text-gray-900 self-center ' + (this.state.clicked ? 'animated animate-fadeIn' : '')}>{this.state.title}</h1>
+            <hr className='my-3'></hr>
+            <p className={'text-gray-800 text-lg p-3 ' + (this.state.clicked ? 'animated animate-fadeIn' : '')}>{this.state.introduction}</p>
           </div>
         </div>
       </ParallaxLayer>
