@@ -128,8 +128,8 @@ class Page2 extends React.Component {
         </div>
 
         {/* 图片与介绍容器 */}
-        <img src={this.state.img} className={'m-5 lg:(m-10 w-40) ' + (this.state.clicked ? 'animated animate-fadeIn animate-slow' : '')}></img>
-        <p className={'m-10 ' + (this.state.clicked ? 'animated animate-fadeIn animate-slow' : '')}>
+        <img src={this.state.img} className={'m-5 lg:(m-10 w-40) ' + (this.state.clicked ? 'animated animate-fadeIn animate-slower' : '')}></img>
+        <p className={'m-10 ' + (this.state.clicked ? 'animated animate-fadeIn animate-slower' : '')}>
           {this.state.intro}
         </p>
 
