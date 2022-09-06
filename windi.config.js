@@ -4,6 +4,7 @@ module.exports = {
       backgroundImage: {
         //  'hero-pattern': "url('/img/hero-pattern.svg')",
         'texture': "url('/assets/2.jpg')",
+        'overall': "url('/assets/1.jpg')",
       }
     }
   },

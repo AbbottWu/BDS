@@ -2,6 +2,7 @@ import ReactDOM from 'react-dom/client'
 import close_icon from '/assets/close.svg'
 import { useEffect, useState } from 'react'
 import { useSpring, animated } from 'react-spring'
+import { useNavigate } from 'react-router-dom';
 
 
 function ReactDot(props) {
@@ -10,7 +11,6 @@ function ReactDot(props) {
     const hidden_style = { display: 'none', "opacity": 0 };
     const show_style = { delay: 500, display: true, opacity: 1 };
     const [clicked, useClick] = useState(false);
-    console.log(clicked)
     const styles = useSpring(clicked ? board_style : dot_style);
     const content_styles = useSpring(clicked ? show_style : hidden_style);
     function update(params) {
@@ -84,24 +84,30 @@ export function HistoryPage(props) {
             <p className=''>北斗系统也从这里开始，以全新的面貌面向世界，向全球的人们提供精准、及时的定位服务，让全球人民都能看到中国正以开放、包容、向往和平的方式走向世界</p>
         </div>
     );
-    console.log(dot_clicked)
+    let navigate = useNavigate();
     return (
-        <div className='h-full w-full flex justify-center items-center bg-gradient-to-r from-orange-500 to bg-red-500 animated animate-fadeIn animate-slow'>
-            <div className='absolute rounded-full bg-gray-500 flex justify-between items-center h-7/10 w-2 flex-col gap-y-3 md:(h-2 w-9/13 flex-row gap-x-5) z-10'>
-                <ReactDot title='国难中诞生' content={content_1} clicked={dot_clicked[0]} recover={() => useClicked([false, false, false, false])} set={() => useClicked([true, false, false, false])}></ReactDot>
+        <div className='h-full w-full flex justify-center items-center bg-gradient-to-r from-orange-500 to-red-500 animated animate-fadeIn animate-slow'>
+            <div className='absolute rounded-full bg-gray-500 flex justify-between items-center h-7/10 w-2 flex-col gap-y-3 md:(h-2 w-9/13 flex-row gap-x-5 mr-0) z-10 mr-2'>
+                <ReactDot title='“危机”中诞生' content={content_1} clicked={dot_clicked[0]} recover={() => useClicked([false, false, false, false])} set={() => useClicked([true, false, false, false])}></ReactDot>
                 <ReactDot title='困厄中起步' content={content_2} clicked={dot_clicked[1]} recover={() => useClicked([false, false, false, false])} set={() => useClicked([false, true, false, false])}></ReactDot>
                 <ReactDot title='竞争中发展' content={content_3} clicked={dot_clicked[2]} recover={() => useClicked([false, false, false, false])} set={() => useClicked([false, false, true, false])}></ReactDot>
                 <ReactDot title='奋斗中繁荣' content={content_4} clicked={dot_clicked[3]} recover={() => useClicked([false, false, false, false])} set={() => useClicked([false, false, false, true])}></ReactDot>
             </div>
             <div className='w-10/13 h-4/5 rounded-xl backdrop-filter backdrop-blur-xl bg-white/80 flex flex-row md:(flex-col) items-center gap-2'>
-                <h1 className='pl-5 text-2xl text-gray-800 write-vertical-left md:(write-normal text-3xl pt-25) '>北斗系统发展史</h1>
-                <h2 className='text-sm text-gray-600 write-vertical-left md:(write-normal text-xl) '>——诞生于危机，繁荣于苦干，回馈于世界</h2>
-                <div className='flex flex-col md:(pl-5 flex-row h-full w-16/17 items-center pt-7) items-end w-full h-7/8 justify-between mr-5'>
-                    <div className='text-lg md:(text-2xl) cursor-pointer' onClick={() => useClicked([true, false, false, false])}>国难中诞生</div>
+                <h1 className='pl-5 text-3xl text-gray-800 write-vertical-left md:(write-normal text-3xl pt-25) '>北斗系统发展史</h1>
+                <h2 className='text-md text-gray-600 write-vertical-left md:(write-normal text-xl) '>——诞生于危机，繁荣于苦干，回馈于世界</h2>
+                <div className='flex flex-col md:(pl-5 flex-row h-full w-16/17 items-center pt-7) items-end w-full h-7/8 justify-between'>
+                    <div className='text-lg md:(text-2xl) cursor-pointer' onClick={() => useClicked([true, false, false, false])}>危机中诞生</div>
                     <div className='text-lg md:(text-2xl) cursor-pointer' onClick={() => useClicked([false, true, false, false])}>困厄中起步</div>
                     <div className='text-lg md:(text-2xl) cursor-pointer' onClick={() => useClicked([false, false, true, false])}>竞争中发展</div>
                     <div className='text-lg md:(text-2xl) cursor-pointer' onClick={() => useClicked([false, false, false, true])}>奋斗中繁荣</div>
                 </div>
+                <button className='bg-green-500 rounded-md shadow-md shadow-green-300 self-center px-2 py-5 -ml-3 mr-2 md:(py-3 px-12 m-5)'
+                    onClick={()=>{
+                        navigate('/principle')
+                    }}>
+                    <div className='write-vertical-left md:(write-normal text-2xl) text-gray-800'>下一站</div>
+                </button>
             </div>
         </div>
     )
