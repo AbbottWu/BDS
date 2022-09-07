@@ -15,20 +15,21 @@ export function Overall(props) {
           <p className={content_style}> 如今，北斗系统正以面向世界，面向未来的姿态向全球传达着中国声音，展现着中国实力。同时，北斗系统以其服务全球用户的态度，传达着中国合作共赢，互惠共享的发展理念，是中国积极推动构建人类命运共同体建设的生动案例。</p>
           <p className={content_style}> 作为当代大学生，我们也将继承和发扬北斗精神，以昂扬积极的态度面对未来的挑战。</p>
           <p className='text-2xl text-blue-700 mt-4'> 希望我们每个人都能“有一份热，发一份光”，都能以微光汇聚，照亮北斗群星璀璨！!</p>
-          <div className='flex flex-col gap-2'>
-            <button className='py-2 px-6 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg shadow-xl'
+          <div className='flex flex-col gap-2 md:(flex-row w-full justify-between) mt-5'>
+            <button className='py-2 px-6 md:(px-15 py-4) bg-gradient-to-r from-orange-500 to-red-500 rounded-lg shadow-xl'
               onClick={()=>{
                 navigate('/history')
               }}> 发展历史 </button>
-            <button className='py-2 px-6 bg-gradient-to-r from-lime-300 to-green-500 rounded-lg shadow-xl'
+            <button className='py-2 px-6 md:(px-15 py-4) bg-gradient-to-r from-lime-300 to-green-500 rounded-lg shadow-xl'
             onClick={()=>{
                 navigate('/principle')
               }}> 原理与特色 </button>
-            <button className='py-2 px-6 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg shadow-xl'
+            <button className='py-2 px-6 md:(px-15 py-4) bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg shadow-xl'
             onClick={()=>{
                 navigate('/application')
               }}> 北斗应用 </button>
           </div>
+          <p className='text-gray-500 self-end mt-3'>部分科普资料摘自北斗官网——科普园地</p>
         </div>
       </div>
     );
