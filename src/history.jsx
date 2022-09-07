@@ -1,8 +1,10 @@
 import ReactDOM from 'react-dom/client'
-import close_icon from '/assets/close.svg'
+import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react'
 import { useSpring, animated } from 'react-spring'
-import { useNavigate } from 'react-router-dom';
+import 'virtual:windi.css'
+
+import close_icon from '/assets/close.svg'
 
 
 function ReactDot(props) {

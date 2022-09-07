@@ -1,7 +1,6 @@
 import ReactDOM from 'react-dom/client'
-import React from 'react'
+import { NavLink } from 'react-router-dom'
 import 'virtual:windi.css'
-import { Navigate, NavLink } from 'react-router-dom'
 
 export class Application extends React.Component {
     constructor(props) {

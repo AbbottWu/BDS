@@ -1,7 +1,8 @@
 import ReactDOM from 'react-dom/client'
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import 'virtual:windi.css'
+
 import GNSS_ICON from '/assets/gps-svgrepo-com.svg'
 import MESSAGE_ICON from '/assets/message-svgrepo-com.svg'
 import close_icon from '/assets/close.svg'
